@@ -1,106 +1,69 @@
-/**
- * 校验字符串是否为合法的数字
- * 如果是，返回数字化的字符串
- * 否则返回空字符串
- * @type {[type]}
- */
-export const normalize = (value: string): string => {
-  const trueValue = value.trim()
-  if (trueValue === '') return value
-
-  let dotCount = 0
-  const digit = trueValue.replace(/\./g, (str: string) => {
-    dotCount += 1
-    return dotCount === 1 ? str : ''
-  })
-  const number = Number(digit)
-
-  if (!isNaN(number)) {
-    return number.toString()
-  }
-  console.warn(`${trueValue} is not a Number`)
-  return ''
-}
-
-const operators = ['+', '-', '*', '/'] as const
-type Operator = typeof operators[number]
-export const isOperator = (s: string): s is Operator => operators.includes(s as Operator)
-
-export const isNumber = <T = unknown>(v: T): boolean => typeof v === 'number' && !isNaN(v)
-export const add = (a: number, b: number): number => a + b
-export const subtraction = (a: number, b: number): number => a - b
-export const multiplication = (a: number, b: number): number => a * b
-export const division = (a: number, b: number): number => a / b
-
-const opMap = {
-  '+': add,
-  '-': subtraction,
-  '*': multiplication,
-  '/': division,
-}
+import { isNumber, toNumber, normalize, Operator, opMap, isOperator, hasOperator } from './helper';
 
 export class Express {
-  value: number
-  operator: Operator = '+'
-  constructor(value = 0) {
-    this.value = value
+  value: number;
+  operator?: Operator;
+  constructor(value = 0, unit = 100) {
+    this.value = value;
+    this.unit = unit;
   }
 
-  unit = 100
+  unit = 100;
 
   op(otherValue: number): Express {
-    const { value, operator } = this
+    const { value, operator } = this;
     if (!isNumber(value)) {
-      throw new Error(`Expression Error: ${value} is not a number`)
+      const err = `Expression Error: "${value}" is not a number`;
+      throw new Error(err);
     }
     if (!isNumber(otherValue)) {
-      throw new Error(`Expression Error: ${otherValue} is not a number`)
+      const err = `Expression Error: "${otherValue}" is not a number`;
+      throw new Error(err);
     }
     if (isNumber(value) && isNumber(otherValue) && operator) {
-      const { unit } = this
-      this.value = opMap[operator]?.(value * unit, otherValue * unit) / unit
+      const { unit } = this;
+      this.value = opMap[operator]?.(value * unit, otherValue * unit) / unit;
+      delete this.operator;
     }
-    return this
+    return this;
   }
 
   toString(): string {
-    return this.value.toString()
+    return this.value.toString();
   }
   valueOf(): number {
-    return this.value
+    return this.value;
   }
 }
 
-export const hasOperator = (str: string): boolean => !!str.match(/[+\-*/]/)
+const parser = (value: string) => {
+  return value
+    .trim()
+    .replace(/([+\-*/])/g, ' $1 ')
+    .split(/\s*[+\-*/]\s*/g);
+};
 
 /**
  * expression calcute
  */
-
 const expCalc = (value: string, unit = 100): string => {
-  const expressions = value
-    .trim()
-    .replace(/([+\-*/])/g, ' $1 ')
-    .split(/\s*[+\-*/]\s*/g)
+  const expressions = parser(value);
 
   if (!hasOperator(value)) {
-    return normalize(value)
+    return normalize(value);
   }
 
-  let exp = new Express(0)
-  exp.unit = unit
-  exp = expressions.reduce((acc, str) => {
-    const normalizedValue = normalize(str)
-    const num = Number(normalizedValue)
+  const exp = expressions.reduce((acc, str) => {
+    const num = toNumber(str);
     if (isNumber(num)) {
-      acc.op(num)
+      acc.op(num);
     } else if (isOperator(str)) {
-      acc.operator = str
+      acc.operator = str;
     }
-    return acc
-  }, exp)
+    return acc;
+  }, new Express(0, unit));
 
-  return exp.toString()
-}
+  return exp.toString();
+};
 
-export default expCalc
+export default expCalc;
