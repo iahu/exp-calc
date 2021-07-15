@@ -77,7 +77,7 @@ export const hasOperator = (str: string): boolean => !!str.match(/[+\-*/]/)
  * expression calcute
  */
 
-const expCalc = (value: string): string => {
+const expCalc = (value: string, unit = 100): string => {
   const expressions = value
     .trim()
     .replace(/([+\-*/])/g, ' $1 ')
@@ -87,7 +87,9 @@ const expCalc = (value: string): string => {
     return normalize(value)
   }
 
-  const exp = expressions.reduce((acc, str) => {
+  let exp = new Express(0)
+  exp.unit = unit
+  exp = expressions.reduce((acc, str) => {
     const normalizedValue = normalize(str)
     const num = Number(normalizedValue)
     if (isNumber(num)) {
@@ -96,7 +98,7 @@ const expCalc = (value: string): string => {
       acc.operator = str
     }
     return acc
-  }, new Express(0))
+  }, exp)
 
   return exp.toString()
 }
