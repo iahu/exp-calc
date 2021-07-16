@@ -51,7 +51,10 @@ export class Express {
  */
 const expCalc = (value: string, unit = 100): number => {
   if (!hasOperator(value)) {
-    return toNumber(value)
+    if (isDigit(value)) {
+      return toNumber(value)
+    }
+    return NaN
   }
 
   const tokens = parser(value) as Token[]
