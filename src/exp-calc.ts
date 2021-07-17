@@ -1,74 +1,42 @@
-import { hasOperator, isDigit, isFormula, isOperator, isPriorityOp, Operator, opMap, Token, toNumber } from './helper'
+import { hasOperator, isDigit, isFormula, isPriorityOp, Token, toNumber, isGroupStartOp, isGroupEndOp } from './helper'
+import Express from './express'
 import parser from './parser'
 
-export class Express {
-  value = 0
-  unit = 100
-  operator?: Operator
-  tokens = [] as Token[]
-
-  constructor(unit = 100) {
-    this.unit = unit
-  }
-
-  op(token: number | string): Express {
-    const { value, operator, unit } = this
-
-    // operator
-    if (isOperator(token)) {
-      this.operator = token
-      this.tokens.push(token)
-    }
-    // digit
-    else if (isDigit(token)) {
-      if (operator === undefined) {
-        this.value = toNumber(token)
-        this.tokens.push(this.value)
-      } else {
-        const op = opMap[operator]
-        const otherValue = toNumber(token)
-        const base = isPriorityOp(operator) ? op(unit, unit) : unit
-        this.value = op(value * unit, otherValue * unit) / base
-        this.tokens.push(token)
-        delete this.operator
-      }
-      return this
-    }
-
-    return this
-  }
-
-  toString(): string {
-    return this.value.toString()
-  }
-  valueOf(): number {
-    return this.value
-  }
-}
-
 /**
- * expression calcute
+ * expression calculate
  */
-const expCalc = (value: string, unit = 100): number => {
-  if (!hasOperator(value)) {
-    if (isDigit(value)) {
-      return toNumber(value)
+export const expCalc = (exp: string, unit = 100): number => {
+  if (!hasOperator(exp)) {
+    if (isDigit(exp)) {
+      return toNumber(exp)
     }
     return NaN
   }
 
-  const tokens = parser(value) as Token[]
+  const tokens = parser(exp) as Token[]
   let i = 0
+  let groupStart = NaN
+
   while (i < tokens.length) {
-    const ops = [tokens[i - 2], tokens[i - 1], tokens[i]] as const
+    const op = tokens[i]
+    const ops = [tokens[i - 2], tokens[i - 1], op] as const
     const isPriorityFormula = isPriorityOp(ops[1]) && isFormula(...ops)
 
-    // a*b or a/b
-    if (isPriorityFormula) {
+    if (isGroupStartOp(op)) {
+      groupStart = i
+    } else if (isGroupEndOp(op)) {
+      const subExp = tokens.slice(groupStart + 1, i).join('')
+      const subExpLength = i - groupStart + 1
+      const subExpResult = expCalc(subExp)
+      tokens.splice(groupStart, subExpLength, subExpResult)
+      i -= subExpLength
+      groupStart = NaN
+    } else if (isPriorityFormula) {
       const exp = ops.reduce((acc, op) => acc.op(op), new Express(unit))
       tokens.splice(i - 2, 3, exp.value)
+      i -= 2
     }
-    i = i + Math.pow(-1, Number(isPriorityFormula))
+    i += 1
   }
 
   return tokens.reduce((acc, str) => acc.op(str), new Express(unit)).value

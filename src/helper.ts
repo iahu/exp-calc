@@ -29,11 +29,13 @@ export const toNumber = (value: Token, warn = true): number => Number(normalize(
 
 export const isString = (v: unknown): v is string => typeof v === 'string'
 export const isNumber = (v: unknown): v is number => typeof v === 'number' && !isNaN(v)
-export const isDigit = (v: unknown): boolean => isNumber(v) || (isString(v) && v !== '' && toNumber(v) === Number(v))
+export const isDigit = (v: unknown): boolean =>
+  isNumber(v) || (isString(v) && v !== '' && toNumber(v, false) === Number(v))
 export const add = (a: number, b: number): number => a + b
 export const subtraction = (a: number, b: number): number => a - b
 export const multiplication = (a: number, b: number): number => a * b
 export const division = (a: number, b: number): number => a / b
+export const unGroup = (a: '(', b: number) => b
 
 export const opMap = {
   '+': add,
