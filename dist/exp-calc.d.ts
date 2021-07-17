@@ -1,16 +1,5 @@
-import { Operator, Token } from './helper';
-export declare class Express {
-    value: number;
-    unit: number;
-    operator?: Operator;
-    tokens: Token[];
-    constructor(unit?: number);
-    op(token: number | string): Express;
-    toString(): string;
-    valueOf(): number;
-}
 /**
- * expression calcute
+ * expression calculate
  */
-declare const expCalc: (value: string, unit?: number) => number;
+export declare const expCalc: (exp: string, unit?: number) => number;
 export default expCalc;

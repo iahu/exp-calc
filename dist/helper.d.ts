@@ -13,6 +13,7 @@ export declare const add: (a: number, b: number) => number;
 export declare const subtraction: (a: number, b: number) => number;
 export declare const multiplication: (a: number, b: number) => number;
 export declare const division: (a: number, b: number) => number;
+export declare const unGroup: (a: "(", b: number) => number;
 export declare const opMap: {
     '+': (a: number, b: number) => number;
     '-': (a: number, b: number) => number;
