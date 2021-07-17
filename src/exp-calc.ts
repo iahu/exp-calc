@@ -43,3 +43,4 @@ export const expCalc = (exp: string, unit = 100): number => {
 }
 
 export default expCalc
+console.log(expCalc('1+(2-3)/4*6-(7+8)'))
