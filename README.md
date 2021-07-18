@@ -1,6 +1,15 @@
-# expCalc.js ![build status](https://travis-ci.com/iahu/exp-calc.svg?branch=master&status=started)
+# expCalc.js
+
+![Build Status](https://travis-ci.com/iahu/exp-calc.svg?branch=master&status=started)
+[![codecov](https://codecov.io/gh/iahu/exp-calc/branch/master/graph/badge.svg?token=2NOW2ZITTH)](https://codecov.io/gh/iahu/exp-calc)
 
 JavaScript 四则运算库
+
+## Install
+
+```sh
+yarn add https://github.com/iahu/exp-calc.git
+```
 
 ## Examples
 
@@ -16,3 +25,7 @@ expCalc('.1 + .2') // 0.3 正数可以小数省略前而的 `0`
 ```
 
 更多例子可查看 [test](./test) 目录下的测试用例
+
+## License
+
+MIT
