@@ -6,7 +6,10 @@ describe('parser', function () {
     expect(parser('1')).toEqual(['1'])
     expect(parser('1.2')).toEqual(['1.2'])
     expect(parser('-1.2')).toEqual(['-1.2'])
+
+    global.console.warn = jest.fn()
     expect(parser('1 1')).toEqual([''])
+    expect(console.warn).toBeCalled()
   })
 
   test('正数包括多个小数点只保留第一个', function () {

@@ -74,3 +74,4 @@ var isFormula = function (op1, op2, op3) {
     return exports.isOperator(op2) && exports.isDigit(op1) && exports.isDigit(op3);
 };
 exports.isFormula = isFormula;
+//# sourceMappingURL=helper.js.map

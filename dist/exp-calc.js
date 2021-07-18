@@ -47,3 +47,4 @@ var expCalc = function (exp, unit) {
 };
 exports.expCalc = expCalc;
 exports.default = exports.expCalc;
+//# sourceMappingURL=exp-calc.js.map

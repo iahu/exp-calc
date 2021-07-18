@@ -19,3 +19,4 @@ __exportStar(require("./parser"), exports);
 __exportStar(require("./formula"), exports);
 var exp_calc_1 = require("./exp-calc");
 Object.defineProperty(exports, "default", { enumerable: true, get: function () { return __importDefault(exp_calc_1).default; } });
+//# sourceMappingURL=index.js.map

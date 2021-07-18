@@ -1,4 +1,4 @@
-# expCalc.js
+# expCalc.js ![build status](https://travis-ci.com/iahu/exp-calc.svg?branch=master&status=started)
 
 JavaScript 四则运算库
 
