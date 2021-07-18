@@ -1,11 +1,14 @@
-import { hasOperator, isNumber, isOperator, normalize, toNumber, isGroupStartOp, isGroupEndOp, isDigit } from './helper'
-
+import { hasOperator, isOperator, normalize, isGroupStartOp, isGroupEndOp, isDigit } from './helper'
+// (?<=[\d\s()])
 const serialize = (exp: string) => {
-  return exp
-    .trim()
-    .replace(/([+\-*/\(\)])/g, ' $1 ')
-    .split(/\s+/g)
-    .filter(v => v !== '')
+  return (
+    exp
+      .trim()
+      .replace(/((?<=[\d\s()])[+\-*/]|[()])/g, ' $1 ')
+      // .replace(/([+\-*/]|[()])/g, ' $1 ')
+      .split(/\s+/g)
+      .filter((v) => v !== '')
+  )
 }
 
 const validate = (tokens: string[]) => {

@@ -35,7 +35,7 @@ export const add = (a: number, b: number): number => a + b
 export const subtraction = (a: number, b: number): number => a - b
 export const multiplication = (a: number, b: number): number => a * b
 export const division = (a: number, b: number): number => a / b
-export const unGroup = (a: '(', b: number) => b
+export const unGroup = (a: '(', b: number): number => b
 
 export const opMap = {
   '+': add,

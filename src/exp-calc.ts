@@ -1,5 +1,5 @@
 import { hasOperator, isDigit, isFormula, isPriorityOp, Token, toNumber, isGroupStartOp, isGroupEndOp } from './helper'
-import Express from './express'
+import Formula from './formula'
 import parser from './parser'
 
 /**
@@ -32,14 +32,14 @@ export const expCalc = (exp: string, unit = 100): number => {
       i -= subExpLength
       groupStart = NaN
     } else if (isPriorityFormula) {
-      const exp = ops.reduce((acc, op) => acc.op(op), new Express(unit))
+      const exp = ops.reduce((acc, op) => acc.op(op), new Formula(unit))
       tokens.splice(i - 2, 3, exp.value)
       i -= 2
     }
     i += 1
   }
 
-  return tokens.reduce((acc, str) => acc.op(str), new Express(unit)).value
+  return tokens.reduce((acc, str) => acc.op(str), new Formula(unit)).value
 }
 
 export default expCalc

@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var helper_1 = require("./helper");
-var Express = /** @class */ (function () {
-    function Express(unit) {
+var Formula = /** @class */ (function () {
+    function Formula(unit) {
         if (unit === void 0) { unit = 100; }
         this.value = 0;
         this.unit = 100;
         this.tokens = [];
         this.unit = unit;
     }
-    Express.prototype.op = function (token) {
+    Formula.prototype.op = function (token) {
         var _a = this, value = _a.value, operator = _a.operator, unit = _a.unit;
         // operator
         if (helper_1.isOperator(token)) {
@@ -32,14 +32,17 @@ var Express = /** @class */ (function () {
             }
             return this;
         }
+        else {
+            throw Error("illegal token: \"" + token + "\"");
+        }
         return this;
     };
-    Express.prototype.toString = function () {
+    Formula.prototype.toString = function () {
         return this.value.toString();
     };
-    Express.prototype.valueOf = function () {
+    Formula.prototype.valueOf = function () {
         return this.value;
     };
-    return Express;
+    return Formula;
 }());
-exports.default = Express;
+exports.default = Formula;

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1626582618198" clover="3.2.0">
+  <project timestamp="1626582618199" name="All files">
+    <metrics statements="117" coveredstatements="117" conditionals="67" coveredconditionals="64" methods="31" coveredmethods="29" elements="215" coveredelements="210" complexity="0" loc="117" ncloc="117" packages="1" files="4" classes="4"/>
+    <file name="exp-calc.ts" path="/Users/hub/Developer/exp-calc/src/exp-calc.ts">
+      <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="14" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="8" count="60" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="31" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="16" count="28" type="stmt"/>
+      <line num="17" count="28" type="stmt"/>
+      <line num="18" count="28" type="stmt"/>
+      <line num="20" count="28" type="stmt"/>
+      <line num="21" count="139" type="stmt"/>
+      <line num="22" count="139" type="stmt"/>
+      <line num="23" count="139" type="cond" truecount="2" falsecount="0"/>
+      <line num="25" count="139" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="5" type="stmt"/>
+      <line num="27" count="134" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="5" type="stmt"/>
+      <line num="29" count="5" type="stmt"/>
+      <line num="30" count="5" type="stmt"/>
+      <line num="31" count="5" type="stmt"/>
+      <line num="32" count="5" type="stmt"/>
+      <line num="33" count="5" type="stmt"/>
+      <line num="34" count="129" type="cond" truecount="2" falsecount="0"/>
+      <line num="35" count="42" type="stmt"/>
+      <line num="36" count="14" type="stmt"/>
+      <line num="37" count="14" type="stmt"/>
+      <line num="39" count="139" type="stmt"/>
+      <line num="42" count="86" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+    </file>
+    <file name="formula.ts" path="/Users/hub/Developer/exp-calc/src/formula.ts">
+      <metrics statements="30" coveredstatements="30" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="48" type="stmt"/>
+      <line num="5" count="48" type="stmt"/>
+      <line num="7" count="48" type="stmt"/>
+      <line num="8" count="54" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="48" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="12" count="161" type="stmt"/>
+      <line num="15" count="161" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="52" type="stmt"/>
+      <line num="17" count="52" type="stmt"/>
+      <line num="20" count="109" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="103" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="54" type="stmt"/>
+      <line num="23" count="54" type="stmt"/>
+      <line num="25" count="49" type="stmt"/>
+      <line num="26" count="49" type="stmt"/>
+      <line num="27" count="49" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="49" type="stmt"/>
+      <line num="29" count="49" type="stmt"/>
+      <line num="30" count="49" type="stmt"/>
+      <line num="32" count="103" type="stmt"/>
+      <line num="34" count="6" type="stmt"/>
+      <line num="36" count="52" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="41" count="2" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="44" count="2" type="stmt"/>
+    </file>
+    <file name="helper.ts" path="/Users/hub/Developer/exp-calc/src/helper.ts">
+      <metrics statements="35" coveredstatements="35" conditionals="29" coveredconditionals="27" methods="18" coveredmethods="16"/>
+      <line num="6" count="467" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="459" type="stmt"/>
+      <line num="8" count="459" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="458" type="stmt"/>
+      <line num="11" count="458" type="stmt"/>
+      <line num="12" count="38" type="stmt"/>
+      <line num="13" count="38" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="458" type="stmt"/>
+      <line num="17" count="458" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="345" type="stmt"/>
+      <line num="20" count="113" type="cond" truecount="2" falsecount="0"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="23" count="113" type="stmt"/>
+      <line num="28" count="556" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="890" type="stmt"/>
+      <line num="31" count="382" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="382" type="cond" truecount="4" falsecount="0"/>
+      <line num="34" count="18" type="stmt"/>
+      <line num="35" count="13" type="stmt"/>
+      <line num="36" count="16" type="stmt"/>
+      <line num="37" count="20" type="stmt"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="40" count="3" type="stmt"/>
+      <line num="48" count="3" type="stmt"/>
+      <line num="49" count="261" type="cond" truecount="2" falsecount="0"/>
+      <line num="50" count="94" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="3" type="stmt"/>
+      <line num="53" count="188" type="cond" truecount="2" falsecount="0"/>
+      <line num="55" count="3" type="stmt"/>
+      <line num="56" count="243" type="stmt"/>
+      <line num="57" count="228" type="stmt"/>
+      <line num="58" count="3" type="cond" truecount="0" falsecount="2"/>
+      <line num="60" count="3" type="stmt"/>
+      <line num="61" count="16" type="cond" truecount="3" falsecount="0"/>
+    </file>
+    <file name="parser.ts" path="/Users/hub/Developer/exp-calc/src/parser.ts">
+      <metrics statements="21" coveredstatements="21" conditionals="14" coveredconditionals="13" methods="5" coveredmethods="5"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="55" type="stmt"/>
+      <line num="10" count="248" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="55" type="stmt"/>
+      <line num="16" count="238" type="cond" truecount="1" falsecount="1"/>
+      <line num="17" count="238" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="104" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="94" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="84" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="24" count="53" type="stmt"/>
+      <line num="27" count="2" type="stmt"/>
+      <line num="28" count="63" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="55" type="stmt"/>
+      <line num="31" count="55" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="3" type="stmt"/>
+      <line num="36" count="50" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

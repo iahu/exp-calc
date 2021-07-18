@@ -2,6 +2,7 @@ module.exports = {
   env: {
     node: true,
     es2021: true,
+    jest: true,
   },
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
@@ -20,7 +21,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['dist/**/*.js', 'node_modules/**/*.stories.ts'],
+      files: ['dist/**/*.js', 'node_modules/**/*.stories.ts', 'test/**/*.js'],
       rules: {
         indent: ['warn', 4, { SwitchCase: 1 }],
         semi: 'off',
@@ -30,6 +31,13 @@ module.exports = {
         'no-global-assign': 'off',
         '@typescript-eslint/no-this-alias': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['test/**/*.js'],
+      rules: {
+        indent: ['warn', 2, { SwitchCase: 1 }],
       },
     },
     {

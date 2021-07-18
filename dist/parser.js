@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var helper_1 = require("./helper");
+// (?<=[\d\s()])
 var serialize = function (exp) {
-    return exp
+    return (exp
         .trim()
-        .replace(/([+\-*/\(\)])/g, ' $1 ')
+        .replace(/((?<=[\d\s()])[+\-*/]|[()])/g, ' $1 ')
+        // .replace(/([+\-*/]|[()])/g, ' $1 ')
         .split(/\s+/g)
-        .filter(function (v) { return v !== ''; });
+        .filter(function (v) { return v !== ''; }));
 };
 var validate = function (tokens) {
     var valid = tokens.reduce(function (acc, op) {

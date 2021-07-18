@@ -1,6 +1,6 @@
 import { isDigit, isOperator, isPriorityOp, Operator, opMap, Token, toNumber } from './helper'
 
-export default class Express {
+export default class Formula {
   value = 0
   unit = 100
   operator?: Operator
@@ -8,7 +8,7 @@ export default class Express {
   constructor(unit = 100) {
     this.unit = unit
   }
-  op(token: number | string): Express {
+  op(token: number | string): Formula {
     const { value, operator, unit } = this
 
     // operator
@@ -30,6 +30,8 @@ export default class Express {
         delete this.operator
       }
       return this
+    } else {
+      throw Error(`illegal token: "${token}"`)
     }
     return this
   }

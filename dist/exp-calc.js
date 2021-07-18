@@ -3,13 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.expCalc = void 0;
 var helper_1 = require("./helper");
-var express_1 = __importDefault(require("./express"));
+var formula_1 = __importDefault(require("./formula"));
 var parser_1 = __importDefault(require("./parser"));
 /**
  * expression calculate
  */
-exports.expCalc = function (exp, unit) {
+var expCalc = function (exp, unit) {
     if (unit === void 0) { unit = 100; }
     if (!helper_1.hasOperator(exp)) {
         if (helper_1.isDigit(exp)) {
@@ -36,12 +37,13 @@ exports.expCalc = function (exp, unit) {
             groupStart = NaN;
         }
         else if (isPriorityFormula) {
-            var exp_1 = ops.reduce(function (acc, op) { return acc.op(op); }, new express_1.default(unit));
+            var exp_1 = ops.reduce(function (acc, op) { return acc.op(op); }, new formula_1.default(unit));
             tokens.splice(i - 2, 3, exp_1.value);
             i -= 2;
         }
         i += 1;
     }
-    return tokens.reduce(function (acc, str) { return acc.op(str); }, new express_1.default(unit)).value;
+    return tokens.reduce(function (acc, str) { return acc.op(str); }, new formula_1.default(unit)).value;
 };
+exports.expCalc = expCalc;
 exports.default = exports.expCalc;
