@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = exports.Formula = exports.Parser = void 0;
+exports.default = exports.Formula = exports.parser = void 0;
 __exportStar(require("./helper"), exports);
 var parser_1 = require("./parser");
-Object.defineProperty(exports, "Parser", { enumerable: true, get: function () { return __importDefault(parser_1).default; } });
+Object.defineProperty(exports, "parser", { enumerable: true, get: function () { return __importDefault(parser_1).default; } });
 var formula_1 = require("./formula");
 Object.defineProperty(exports, "Formula", { enumerable: true, get: function () { return __importDefault(formula_1).default; } });
 var exp_calc_1 = require("./exp-calc");

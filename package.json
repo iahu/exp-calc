@@ -2,16 +2,15 @@
   "name": "exp-calc",
   "version": "1.0.0",
   "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/dts/index.d.ts",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "yarn tsc & yarn build:esm",
-    "build:esm": "tsc --outDir dist/esm --module esnext --sourceMap false",
+    "build": "tsc",
     "watch": "nodemon -w ./src --ext 'ts' --exec tsc",
     "pretest": "rimraf coverage",
     "test": "jest"
