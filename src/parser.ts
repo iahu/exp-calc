@@ -1,11 +1,13 @@
 import { hasOperator, isOperator, normalize, isGroupStartOp, isGroupEndOp, isDigit } from './helper'
-// (?<=[\d\s()])
+
 const serialize = (exp: string) => {
   return (
     exp
       .trim()
-      .replace(/((?<=[\d\s()])[+\-*/]|[()])/g, ' $1 ')
-      // .replace(/([+\-*/]|[()])/g, ' $1 ')
+      .replace(/([+\-*/]|[()])/g, ' $1 ')
+      // safari 不支持 `?<=` 表达式，用两个 replace 弥补一下
+      .replace(/([+\-*/]|^)\s+([+-])\s+(\d)/g, '$1 $2$3')
+      .trim()
       .split(/\s+/g)
       .filter((v) => v !== '')
   )
